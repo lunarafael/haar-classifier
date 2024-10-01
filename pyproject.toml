@@ -1,17 +1,15 @@
 [tool.poetry]
-name = "python-repository-template"
-version = "0.2.0"
-description = "A Python repository template."
-authors = ["Your Name <you@example.com>"]
-license = "MIT"
+name = "haar-classifier"
+version = "0.1.0"
+description = ""
+authors = ["Rafael Luna <kenkorio23@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "~3.9.13"
+python = "^3.10.10"
+opencv-python = "^4.10.0.84"
+matplotlib = "^3.9.2"
 
-[tool.poetry.group.dev.dependencies]
-notebook = "^7.1.2"
-pre-commit = "^3.7.0"
 
 [build-system]
 requires = ["poetry-core"]
