@@ -1,62 +1,52 @@
-# python-repository-template
+# Projeto de Detecção de Gatos usando Classificador Haar
 
-A Python repository template to facilitate getting your projects started and organized.
+## Descrição do Projeto
 
-# If you use Windows, use chocolatey for installing things
+Este projeto consiste na criação e utilização de um classificador Haar para detectar gatos em imagens. A equipe seguiu um fluxo de trabalho que envolveu o treinamento de um classificador Haar e o uso de um script em Python para testar a detecção. Apesar das tentativas iniciais sem sucesso, o classificador final foi gerado com o auxílio de um software de terceiros.
 
-- [chocolatey installation guide](https://chocolatey.org/install)
+## Fluxo de Trabalho
 
-# Use pyenv for Python version management
+### Tentativas Iniciais
 
-- [pyenv installation guide](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
+1. **Primeira Tentativa**: Seguimos o tutorial disponível em [Creating a Cascade of Haar-like Classifiers](https://github.com/felipecbarelli/livro-visao-computacional/blob/master/tutoriais/creating-a-cascade-of-haar-like-classifiers.pdf) utilizando 100 imagens de brinquedos (positivas) e 100 imagens de cachorros (negativas) para o treinamento. Contudo, o resultado não foi satisfatório.
+   
+2. **Segunda Tentativa**: Aumentamos o número de imagens para 200 (positivas e negativas), trocando os exemplos para gatos positivamente e carros negativamentes, mas novamente não obtivemos sucesso no treinamento do classificador.
 
-```bash
-curl https://pyenv.run | bash
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo 'eval "$(pyenv init -)"' >> ~/.profile
-exit
-```
+### Solução Alternativa
 
-In another shell:
+Após as tentativas sem sucesso, utilizamos o software [Cascade Trainer GUI](https://amin-ahmadi.com/cascade-trainer-gui/) para facilitar o processo de treinamento do classificador. Com ele, conseguimos treinar um classificador Haar utilizando:
 
-```bash
-pyenv update
-pyenv install 3.9.13
-pyenv rehash
-pyenv global 3.9.13
-exit
-```
+- **150 imagens positivas (gatos)**.
+- **150 imagens negativas (carros)**.
 
-# Use `make` for simplifing commands and making it explicit how to run your code
+O treinamento foi realizado com essas imagens, configurado para ter 15 estágios, resultando em um arquivo XML que contém o classificador treinado.
 
-- [make documentation](https://www.gnu.org/software/make/manual/make.html)
+### Teste de Detecção
 
-# Use poetry for managing Python dependencies
+Com um código Python, utilizamos o classificador Haar gerado para detectar a presença de gatos em imagens. O script carrega as imagens, aplica o classificador e exibe as imagens com os gatos detectados. Utilizamos 3 imagens de teste positivas e 3 negativas para verificar a eficácia do classificador.
 
-[Poetry](https://python-poetry.org/docs/basic-usage/) is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. Poetry offers a lockfile to ensure repeatable installs, and can build your project for distribution.
+### Fontes de Imagens
 
-## Basic commands:
+As imagens para o treinamento foram obtidas das seguintes fontes:
 
-- Add new dependency: `poetry add <package>`
-- Install dependencies: `poetry install`
-- Update dependencies: `poetry update`
-- Remove dependencies: `poetry remove <package>`
-- Run a command in the virtual environment: `poetry run <command>`
-- Run python in the virtual environment: `poetry run python <command>`
+- **Imagens Positivas (gatos)**: [Kaggle Dataset - Cat and Dog](https://www.kaggle.com/datasets/tongpython/cat-and-dog?resource=download)
+- **Imagens Negativas (carros)**: [Kaggle Dataset - Cars Image Dataset](https://www.kaggle.com/datasets/kshitij192/cars-image-dataset)
 
-# Make sure to use the Makefile to facilitate the usage of your repository
+## Execução
 
-Anyone that clones your repository should be able to relatively easily run your code with just a few commands. The Makefile should contain the following commands:
+O script de detecção foi executado utilizando o arquivo XML gerado. O código Python está disponível em `src/app/app.py` e utiliza o OpenCV para carregar as imagens, aplicar o classificador Haar, e detectar a presença de gatos nas imagens fornecidas.
 
-```bash
-make install
-make run
-```
+## Instruções de Instalação e Execução
 
-# Use pre-commit for running checks before committing
+1. **Instale as dependências**:
+   Certifique-se de ter o Python e as bibliotecas necessárias instaladas, especialmente o OpenCV e o Matplotlib. Para instalar as dependências, execute o seguinte comando:
 
-[pre-commit](https://pre-commit.com/) is a framework for managing and maintaining multi-language pre-commit hooks. It is a client-side hook manager that can be used to automate checks before committing code. It is recommended to use pre-commit to ensure code formatting, among other things.
+   ```bash
+   pip install opencv-python matplotlib
+   ```
+
+2. **Para executar**:
+    ```bash
+    cd src/app
+    python app.py
+    ```
