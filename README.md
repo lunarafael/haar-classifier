@@ -21,6 +21,7 @@ Após as tentativas sem sucesso, utilizamos o software [Cascade Trainer GUI](htt
 - **150 imagens positivas (gatos)**.
 - **150 imagens negativas (carros)**.
 
+Essas imagens estão disponíveis em src/training/p e src/training/n, respectivamente. Também é possível encontrar os arquivos gerados pelo Cascade Trainer GUI em src/training/. Caso deseje, os diretórios já estão organizados para serem utilizados no treinamento com essa ferramenta.
 O treinamento foi realizado com essas imagens, configurado para ter 15 estágios, resultando em um arquivo XML que contém o classificador treinado.
 
 ### Teste de Detecção
