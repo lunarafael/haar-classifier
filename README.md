@@ -14,9 +14,11 @@ Este projeto consiste na criação e utilização de um classificador Haar para 
 
 3. **Terceira Tentativa**: Como sugestão do docente, tentamos utilizar o YOLOv5 para realizar a detecção de gatos e o desenho de bounding boxes. Apesar de uma boa parte da classificação estar correta nas bounding boxes, não foi possível gerar o XML do classificador Haar, pois a criação desse tipo de arquivo na biblioteca do OpenCV já é obsoleta e não encontramos outra forma de gerar o arquivo a partir das coordenadas positivas encontradas no conjunto de imagens.
 
+4. **Comparação com treino pronto**: Utilizamos [um XML de classificador de gatos](https://github.com/haribaskar/CatDetection-HaarCascade) que foi encontrado no GitHub para comparação com as tentativas anteriores, que apresentou uma melhora em relação ao resultado da primeira e segunda tentativa.
+
 ### Solução Alternativa
 
-Após as tentativas sem sucesso, utilizamos o software [Cascade Trainer GUI](https://amin-ahmadi.com/cascade-trainer-gui/) para facilitar o processo de treinamento do classificador. Com ele, conseguimos treinar um classificador Haar utilizando:
+Após as tentativas sem sucesso e a comparação, utilizamos o software [Cascade Trainer GUI](https://amin-ahmadi.com/cascade-trainer-gui/) para facilitar o processo de treinamento manual do classificador. Com ele, conseguimos treinar um classificador Haar utilizando:
 
 - **150 imagens positivas (gatos)**.
 - **150 imagens negativas (carros)**.
