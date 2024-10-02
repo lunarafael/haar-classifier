@@ -12,7 +12,7 @@ Este projeto consiste na criação e utilização de um classificador Haar para 
    
 2. **Segunda Tentativa**: Aumentamos o número de imagens para 200 (positivas e negativas), trocando os exemplos para gatos positivamente e carros negativamentes, mas novamente não obtivemos sucesso no treinamento do classificador.
 
-3. **Terceira Tentativa**: Como sugestão do docente, tentamos utilizar o YOLOv5 para realizar a detecção de gatos e o desenho de bounding boxes. Apesar da classificação correta, não foi possível gerar o XML do classificador Haar, pois a criação desse tipo de arquivo na biblioteca do OpenCV já é obsoleta e não encontramos outra forma de gerar o arquivo a partir das coordenadas positivas encontradas no conjunto de imagens.
+3. **Terceira Tentativa**: Como sugestão do docente, tentamos utilizar o YOLOv5 para realizar a detecção de gatos e o desenho de bounding boxes. Apesar de uma boa parte da classificação estar correta nas bounding boxes, não foi possível gerar o XML do classificador Haar, pois a criação desse tipo de arquivo na biblioteca do OpenCV já é obsoleta e não encontramos outra forma de gerar o arquivo a partir das coordenadas positivas encontradas no conjunto de imagens.
 
 ### Solução Alternativa
 
